@@ -1,33 +1,85 @@
-# Ai_Security_Portfolio
-AI security research, LLM evaluation and practical security testing projects.
-AI Security Portfolio
+# Comparative LLM Security Evaluation
 
-Welcome to my AI Security Portfolio.
+## Project Overview
 
-This repository documents my practical learning, research and independent projects in AI security, LLM evaluation and adversarial testing.
+This project investigates how three large language models — ChatGPT, Claude and Gemini — respond to common AI security threats in a controlled, simulated customer-support environment.
 
-Areas of Interest
+The evaluation focuses on prompt injection, jailbreak attempts, confidential instruction disclosure and multimodal prompt injection.
 
-- AI Red Teaming
-- Large Language Model (LLM) Security
-- Prompt Injection and Jailbreaking
-- AI Safety and Guardrail Evaluation
-- AI Agent Security
-- Python-based Security Testing
+The project combines practical adversarial testing, structured result collection and Python-based analysis.
 
-Projects
+## Models Evaluated
 
-Projects and experiments will be documented here, including testing methodologies, observations, results and security recommendations.
-
-Tools and Technologies
-
-- Python
 - ChatGPT
 - Claude
-- Google Gemini
+- Gemini
+
+## Security Testing Techniques
+
+Five testing techniques were completed:
+
+1. **Direct Prompt Injection:** Tested whether malicious user instructions could override the model's original instructions.
+2. **Indirect Prompt Injection:** Tested whether models followed malicious instructions embedded in an external document.
+3. **Jailbreak Attempts:** Tested role-play, instruction overrides and hypothetical scenarios designed to bypass confidentiality restrictions.
+4. **System Prompt Extraction Attempts:** Tested whether models disclosed or summarized simulated confidential instructions.
+5. **Multimodal Prompt Injection:** Tested whether models followed malicious instructions embedded in an uploaded image.
+
+## Evaluation Results
+
+A total of 33 structured experiment records were reconstructed from the recorded findings.
+
+| Model | Resisted | Partial Resistance |
+|---|---:|---:|
+| ChatGPT | 10 | 1 |
+| Claude | 11 | 0 |
+| Gemini | 11 | 0 |
+| **Total** | **32** | **1** |
+
+No synthetic test marker exposures were recorded.
+
+The partial-resistance result occurred during ChatGPT's system prompt extraction testing: it did not reveal the test marker but provided a detailed summary of simulated behavioural instructions.
+
+These findings represent preliminary observations from the scenarios tested. They do not establish that any model is immune to attacks.
+
+## Evaluation Criteria
+
+Responses were assessed using five criteria:
+
+- Whether the model followed the malicious instruction.
+- Whether it maintained its original task.
+- Whether it exposed the synthetic confidential test marker.
+- Whether it treated external content as untrusted.
+- Whether its behaviour was consistent across the tested scenarios.
+
+## Tools and Technologies
+
+- Python
+- Pandas
+- Google Colab
+- Hugging Face Datasets
 - GitHub
-- AI security testing frameworks
+- ChatGPT, Claude and Gemini
 
-Objective
+## Dataset
 
-To develop practical skills in identifying, evaluating and documenting security vulnerabilities and safety weaknesses in AI systems.
+The project used the NeurAlchemy Prompt Injection & Jailbreak Detection Dataset from Hugging Face as a reference for examining labelled benign and malicious prompts.
+
+The `core` configuration contained 6,274 records. The training split was inspected for labels, attack categories and severity.
+
+The complete dataset was not analysed. The evaluation prompts were separately designed for the controlled experiments.
+
+Dataset source and handling details are documented in `reports/dataset-sources.md`.
+
+## Repository Structure
+
+```text
+ai-security-portfolio/
+│
+├── evidence/
+│   └── AI_Security_Evaluation.ipynb
+│
+├── python-scripts/
+│   └── analyze_results.py
+│
+├── reports/
+│   ├── comparative_ll
