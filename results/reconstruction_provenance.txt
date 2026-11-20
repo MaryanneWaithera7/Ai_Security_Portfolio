@@ -1,0 +1,7 @@
+DATA RECONSTRUCTION NOTE
+
+The original Colab runtime was reset, resulting in the loss of temporary CSV files.
+
+The 33 structured experiment records were reconstructed from the recorded findings and model responses in the project conversation.
+
+These reconstructed records are not the original raw CSV files or complete model transcripts. The reconstruction and the correction of ChatGPT direct-injection labels should be disclosed when reporting the project.
