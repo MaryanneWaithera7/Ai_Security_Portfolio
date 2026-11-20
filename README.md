@@ -82,4 +82,36 @@ ai-security-portfolio/
 │   └── analyze_results.py
 │
 ├── reports/
-│   ├── comparative_ll
+│   ├── comparative_llm_security_evaluation.md
+│   └── dataset-sources.md
+│
+├── results/
+│   ├── master_ai_security_results.csv
+│   ├── model_comparison_summary.csv
+│   ├── reconstruction_provenance.txt
+│   └── generated_analysis_summary.csv
+│
+├── test-cases/
+│   └── test-cases.md
+│
+└── README.md
+
+Methodological Limitations
+
+The evaluation used simulated baseline instructions, not the providers' actual hidden system prompts.
+
+Each model was tested once per test case. Repeated-trial consistency has not been established.
+
+Gemini's jailbreak prompts were submitted in a different order from the other models.
+
+The Hugging Face dataset was inspected, but the full dataset was not analysed.
+
+Structured results were reconstructed from recorded experiment findings after a Google Colab runtime reset. They are not the original raw CSV files or complete conversation transcripts.
+
+The findings are limited to the tested scenarios and should not be generalized to all model behaviour.
+
+Project Status
+The five security-testing experiments and preliminary comparative analysis are complete.
+
+Author
+Maryann Waithera
